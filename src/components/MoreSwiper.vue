@@ -13,7 +13,7 @@ const { imgArr } = toRefs(props);
 </script>
 /** */
 <template>
-    <swiper :slides-per-view="3" :space-between="0" loop autoplay pagination>
+    <swiper :slides-per-view="3" :space-between="0" loop>
         <swiper-slide v-for="item in imgArr" :key="item.id">
             <a-image :src="item.url" />
         </swiper-slide>
