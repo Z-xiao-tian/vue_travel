@@ -16,13 +16,13 @@ let formState = reactive({
 
 async function onFinish(values: any) {
     console.log(values);
-    const { data } = await http.post("/auth/login",{
-        data:{
-            email:values.username,
-            password:values.password
+    const { data } = await http.post("/auth/login", {
+        data: {
+            email: values.username,
+            password: values.password
         }
     });
-    console.log(data)
+    console.log(data);
 }
 function onFinishFailed(errorInfo: any) {
     console.log(errorInfo);
