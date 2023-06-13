@@ -48,7 +48,8 @@ let menuList = ref([
     </main>
     <footer>
         <h2 style="text-align: center; padding: 1em 0 0; box-sizing: border-box">
-            <b>{{ t("footer.detail") }}</b>
+            <!-- 此处在i18n语言文件中使用了HTML实体字符，所以使用v-hmtl指令渲染内容 -->
+            <b v-html="t(`footer.detail`)"></b>
         </h2>
         <a-divider orientation="left">
             <h2><b>合作企业</b></h2>

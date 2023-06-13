@@ -4,7 +4,7 @@ import { useI18n } from "vue-i18n";
 
 export const useLanguageStore = defineStore("language", () => {
   const { locale } = useI18n();
-  const language = ref("语言");
+  const language = ref("zh");
     const languages = ref([
         {
             lable: "中文",

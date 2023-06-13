@@ -8,11 +8,12 @@
 /* antd-vue中的地球icon组件 */
 import { GlobalOutlined } from "@ant-design/icons-vue";
 import logo from "@/assets/logo.svg";
-/* i18n pinia 仓库 */
+/* i18n pinia仓库, router, axios */
 import { useLanguageStore } from "@/stores/counter";
 import { storeToRefs } from "pinia";
 import { useI18n } from "vue-i18n";
-import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { ref, onMounted } from "vue";
 
 const languageStore = useLanguageStore();
 /** 语言切换 */
@@ -22,11 +23,15 @@ function handleChange(value: string) {
 }
 const { t } = useI18n();
 
+const router = useRouter();
+
 /** 搜索功能 */
 let searchQuery = ref("");
 function onSearch(value: string) {
-    console.log(value);
+    router.push({ path: "/search", query: { searchQuery: value } });
 }
+
+onMounted(() => {});
 </script>
 /** */
 <template>
@@ -55,13 +60,13 @@ function onSearch(value: string) {
             <!-- 登录注册按钮组 -->
             <a-button-group>
                 <a-button>{{ t("header.register") }}</a-button>
-                <a-button>{{ t("header.signin") }}</a-button>
+                <a-button @click="router.push('/login')">{{ t("header.signin") }}</a-button>
             </a-button-group>
         </div>
     </header>
-    <div style="background: #ffffff;">
+    <div style="background: #ffffff">
         <div class="logo_search">
-            <div class="logo">
+            <div class="logo" @click="router.push(`/`)">
                 <img :src="logo" alt="" />
                 <span>{{ t("header.title") }}</span>
             </div>
@@ -94,6 +99,7 @@ function onSearch(value: string) {
     padding: 10px 160px;
     display: flex;
     align-items: center;
+    cursor: default;
 }
 .logo {
     width: 200px;

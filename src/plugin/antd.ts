@@ -9,9 +9,11 @@ import {
     Avatar,
     Button,
     Carousel,
+    Checkbox,
     Col,
     DatePicker,
     Divider,
+    Form,
     Image,
     Input,
     Layout,
@@ -46,6 +48,8 @@ export default {
         app.use(DatePicker);
         app.use(Anchor);
         app.use(Typography);
-        app.use(Rate)
+        app.use(Rate);
+        app.use(Form);
+        app.use(Checkbox);
     }
 };
